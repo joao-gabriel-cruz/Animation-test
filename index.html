@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+
+        overflow-y: hidden;
+      }
+      .app {
+        width: 100%;
+        height: 100vh;
+
+        background-color: black;
+      }
+
+      .container {
+        height: 100vh;
+        width: 100vh;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+      .container2 {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+      }
+
+      .star {
+        width: 1px;
+        height: 20px;
+        position: relative;
+        background-color: white;
+
+        animation-name: star-test;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+      }
+
+      .normal {
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+      }
+      .low {
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+      }
+      .high {
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+      }
+
+      .rocket {
+        position: absolute;
+        top: 300px;
+        left: 300px;
+        animation-name: rocket;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+
+      .finaly {
+        position: absolute;
+        top: 300px;
+        left: 400px;
+        animation-name: rocket-finaly;
+        animation-delay: 2s;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      .img {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+      }
+
+      @keyframes star-test {
+        0% {
+          opacity: 0;
+          top: -20px;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          top: calc(100%);
+        }
+      }
+
+      @keyframes rocket {
+        0% {
+          top: 300px;
+          left: 400px;
+        }
+
+        50% {
+          top: 270px;
+          left: 400px;
+        }
+        75% {
+        }
+
+        100% {
+          top: 300px;
+          left: 400px;
+        }
+      }
+      @keyframes rocket-finaly {
+        0% {
+          top: 300px;
+          left: 400px;
+        }
+        25% {
+          top: 350px;
+          left: 400px;
+        }
+        100% {
+          top: -120px;
+          left: 400px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="rocket">
+        <img class=".img" src="foguete.png" alt="" />
+      </div>
+      <div class="container">
+        <div class="star high"></div>
+        <div class="star normal"></div>
+        <div class="star"></div>
+        <div class="star low"></div>
+        <div class="star normal"></div>
+        <div class="star high"></div>
+        <div class="star"></div>
+        <div class="star low"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    setTimeout(() => {
+      const rocket = document.getElementsByClassName("rocket");
+      rocket[0].classList.add("finaly");
+      console.log(document.getElementsByClassName("rocket"));
+    }, 10000);
+  </script>
+</html>
